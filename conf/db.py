@@ -4,7 +4,7 @@ import pathlib
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# URI: postgresql://username:password@domain.port/database
+# URI: postgresql://username:password@domain:port/database
 
 file_config = pathlib.Path(__file__).parent.parent.joinpath("config.ini")  # ../config.ini
 config = configparser.ConfigParser()
@@ -21,6 +21,5 @@ URI = f"postgresql://{user}:{password}@{domain}:{port}/{db}"
 engine = create_engine(URI, echo=False, pool_size=5, max_overflow=0)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
-
 
 
