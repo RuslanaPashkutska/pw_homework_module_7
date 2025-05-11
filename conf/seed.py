@@ -57,11 +57,11 @@ try:
     session.add_all(grades)
     session.commit()
 
-    print("✅ Database populated successfully.")
+    print("Database populated successfully.")
 
 except Exception as e:
     session.rollback()
-    print(f"❌ Error: {e}")
+    print(f"Error: {e}")
 
 finally:
     session.close()
